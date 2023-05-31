@@ -13,7 +13,7 @@ Cliente *clientes = NULL; // Lista ligada vazia
     char nome[100], morada[100], cidade[50], email[100];
     int idade, NIF, telefone;
 
-carteira *dinheiro = NULL; // Lista ligada vazia
+carteira *dinheiros = NULL; // Lista ligada vazia
 
 void cliente() {
     int opcao;
@@ -28,15 +28,14 @@ void cliente() {
     
     switch (opcao) {
         case 1:
-            listarmeios(meios);
-            alugarmeio(meios, dinheiro, codigo);
+            
             break;
         case 2:
             listarmeios(meios);
             break;
         case 3:
-            printf("Localizacao\n");
-            scanf("%d", &codigo);
+            // printf("Localizacao\n");
+            // scanf("%d", &codigo);
             break;
         default:
             printf("Opção inválida.\n");
@@ -75,13 +74,13 @@ void gestor() {
             scanf("%f", &bateria);
             printf("Informe o geocodigo do meio de mobilidade: \n");
             scanf("%s", geocodigo);
-            meios = inserirmeio(meios, codigo, tipo, preco, velocidade, bateria, autonomia, geocodigo);
-            guardarmeio(meios);
+            meios = inserirmeio(codigo, tipo, preco, velocidade, bateria, autonomia, geocodigo);
+            // guardarmeio(meios);
             break;
         case 2:
             printf("Codigo do meio de mobilidade a remover?\n");
             scanf("%d", &codigo);
-            meios = removermeio(meios, codigo);
+            // meios = removermeio(meios, codigo);
             break;
         case 3:
             listarmeios(meios);
@@ -101,13 +100,13 @@ void gestor() {
             scanf("%s", cidade);
             printf("Morada: \n");
             scanf("%s", morada);
-            clientes = inserirclientes(clientes, nome, idade, NIF, telefone, email, cidade, morada);
-            guardarclientes(clientes);
+            // clientes = inserirclientes(clientes, nome, idade, NIF, telefone, email, cidade, morada);
+            // guardarclientes(clientes);
             break;
         case 5:
             printf("NIF do cliente que quer remover: \n");
             scanf("%d", &NIF);
-            removercliente(clientes, NIF);
+            // removercliente(clientes, NIF);
             break;
         default:
             printf("Opção inválida.\n");

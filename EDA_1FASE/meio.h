@@ -19,11 +19,15 @@ typedef struct pagar {
     struct pagar* seguinte;
 }carteira;
 
-Meio *listarmeiosportipo(Meio* inicio, const char* tipo); //Faz a lista de meios por tipo de meios
-void listarmeios(Meio * inicio); //Percorre a lista de meios de mobilidade e imprime as suas informações
-int existemeio(Meio* inicio, int codigo); //Confirma se o meio já existe de acordo com o codigo
-int guardarmeio(Meio* inicio); //Guarda o meio escrito pelo utilizador num ficheiro de texto
-Meio *inserirmeio(Meio *inicio, int codigo, char tipo[], float preco, float velocidade, float bateria, float autonomia, char geocodigo[]); //Inserir um novo meio de mobilidade
-Meio* removermeio(Meio* inicio, int codigo); //Remover um meio de mobilidade já existente
-void lermeios(); 
-void alugarmeio(Meio *inicio, carteira *carteira, int codigo);
+Meio *inserirmeio(int codigo, const char* tipo, float preco, float velocidade, float autonomia, float bateria, const char* geocodigo);
+void listarmeios();
+Meio *alugarmeios(Meio* meios, carteira** dinheiro);
+void inserirsaldo(carteira *dinheiro, float valor);
+// Meio *listarmeiosportipo(Meio* inicio, const char* tipo); //Faz a lista de meios por tipo de meios
+// void listarmeios(Meio * inicio); //Percorre a lista de meios de mobilidade e imprime as suas informações
+// int existemeio(Meio* inicio, int codigo); //Confirma se o meio já existe de acordo com o codigo
+// int guardarmeio(Meio* inicio); //Guarda o meio escrito pelo utilizador num ficheiro de texto
+// Meio *inserirmeio(Meio *inicio, int codigo, char tipo[], float preco, float velocidade, float bateria, float autonomia, char geocodigo[]); //Inserir um novo meio de mobilidade
+// Meio* removermeio(Meio* inicio, int codigo); //Remover um meio de mobilidade já existente
+// void lermeios(); 
+// void alugarmeio(Meio *inicio, carteira *carteira, int codigo);

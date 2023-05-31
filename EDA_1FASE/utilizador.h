@@ -7,7 +7,7 @@ typedef struct clientes
     struct clientes *seguinte;
 }Cliente;
 
-int guardarclientes(Cliente *inicio); //Guarda clientes no ficheiro de texto 
-int existecliente(Cliente* inicio, int NIF); //Confirma se o cliente já existe de acordo com o NIF
-Cliente *removercliente(Cliente* inicio, int nif); //Remover um cliente existente
-Cliente *inserirclientes(Cliente* inicio, char nome[], int idade, int NIF, int telefone, char email[], char cidade[], char morada[]); //Inserir um novo cliente
+// int guardarclientes(Cliente *inicio); //Guarda clientes no ficheiro de texto 
+// int existecliente(Cliente* inicio, int NIF); //Confirma se o cliente já existe de acordo com o NIF
+// Cliente *removercliente(Cliente* inicio, int nif); //Remover um cliente existente
+// Cliente *inserirclientes(Cliente* inicio, char nome[], int idade, int NIF, int telefone, char email[], char cidade[], char morada[]); //Inserir um novo cliente
