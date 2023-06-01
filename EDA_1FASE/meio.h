@@ -21,8 +21,8 @@ typedef struct pagar {
 
 Meio *inserirmeio(int codigo, const char* tipo, float preco, float velocidade, float autonomia, float bateria, const char* geocodigo);
 void listarmeios();
-Meio *alugarmeios(Meio* meios, carteira** dinheiro);
-void inserirsaldo(carteira *dinheiro, float valor);
+Meio *alugarmeio(Meio *meios, carteira *dinheiros);
+
 // Meio *listarmeiosportipo(Meio* inicio, const char* tipo); //Faz a lista de meios por tipo de meios
 // void listarmeios(Meio * inicio); //Percorre a lista de meios de mobilidade e imprime as suas informações
 // int existemeio(Meio* inicio, int codigo); //Confirma se o meio já existe de acordo com o codigo

@@ -3,25 +3,32 @@
 
 typedef struct Cliente {
     int clienteID;
-    double latitude;
-    double longitude;
     struct Cliente* proximo;
 } Cliente;
 
 typedef struct MeioMobilidade {
     int meioID;
-    double latitude;
-    double longitude;
     double cargaBateria;
+    char locazicao;
     struct MeioMobilidade* proximo;
 } MeioMobilidade;
 
-typedef struct Grafo {
-    Cliente* clientes;
-    MeioMobilidade* meios;
+typedef struct Vertice {
+    int cod;
+    char localizacao;
+    double visitado;
     int numClientes;
     int numMeios;
-} Grafo;
+    MeioMobilidade* meios;
+    Vertice* proximo;
+} Vertice;
+
+typedef struct Aresta
+{
+    int codAresta;
+    float peso;
+}Aresta;
+
 
 Grafo* criarGrafo();
 void destruirGrafo(Grafo* grafo);

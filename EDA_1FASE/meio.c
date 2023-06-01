@@ -79,6 +79,40 @@ void listarmeios() {
     fclose(arquivo);
 }
 
+Meio *alugarmeio(Meio *meios, carteira *dinheiros) {
+    // Mostrar lista de meios disponíveis
+    listarmeios(meios);
+
+    int codigo;
+    printf("Informe o codigo do meio de mobilidade que deseja alugar: ");
+    scanf("%d", &codigo);
+
+    // Procurar o meio de mobilidade com o código informado
+    Meio *atual = meios;
+    while (atual != NULL) {
+        if (atual->codigo == codigo) {
+            // Verificar se há saldo suficiente para alugar o meio de mobilidade
+            if (dinheiros == NULL || dinheiros->saldo < atual->preco) {
+                printf("Saldo insuficiente para alugar este meio de mobilidade.\n");
+                return meios;
+            }
+
+            // Subtrair o valor do meio de mobilidade do saldo
+            dinheiros->saldo -= atual->preco;
+            printf("Meio de mobilidade alugado com sucesso!\n");
+            printf("Saldo restante: %.2f\n", dinheiros->saldo);
+            return meios;
+        }
+
+        atual = atual->seguinte;
+    }
+
+    printf("Meio de mobilidade com o codigo informado nao encontrado.\n");
+    return meios;
+}
+
+
+
 // //Faz a lista de meios por tipo de meios
 // Meio *listarmeiosportipo(Meio* inicio, const char* tipo)
 // {

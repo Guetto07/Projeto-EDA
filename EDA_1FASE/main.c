@@ -14,7 +14,6 @@ Cliente *clientes = NULL; // Lista ligada vazia
     int idade, NIF, telefone;
 
 carteira *dinheiros = NULL; // Lista ligada vazia
-
 void cliente() {
     int opcao;
     do{
@@ -28,7 +27,7 @@ void cliente() {
     
     switch (opcao) {
         case 1:
-            
+            meios = alugarmeio(meios, dinheiros);
             break;
         case 2:
             listarmeios(meios);
