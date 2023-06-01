@@ -20,7 +20,6 @@ void cliente() {
     printf("MENU CLIENTE\n");
     printf("1.Alugar Meios\n");
     printf("2.Listar Meios\n");
-    printf("3.Localizacao de Meios\n");
     printf("0.Sair\n");
     printf("Opcao:\n");
     scanf("%d", &opcao);
@@ -31,10 +30,6 @@ void cliente() {
             break;
         case 2:
             listarmeios(meios);
-            break;
-        case 3:
-            // printf("Localizacao\n");
-            // scanf("%d", &codigo);
             break;
         default:
             printf("Opção inválida.\n");
@@ -74,12 +69,11 @@ void gestor() {
             printf("Informe o geocodigo do meio de mobilidade: \n");
             scanf("%s", geocodigo);
             meios = inserirmeio(codigo, tipo, preco, velocidade, bateria, autonomia, geocodigo);
-            // guardarmeio(meios);
             break;
         case 2:
             printf("Codigo do meio de mobilidade a remover?\n");
             scanf("%d", &codigo);
-            // meios = removermeio(meios, codigo);
+            removerMeioPorCodigo(codigo);
             break;
         case 3:
             listarmeios(meios);
@@ -99,13 +93,12 @@ void gestor() {
             scanf("%s", cidade);
             printf("Morada: \n");
             scanf("%s", morada);
-            // clientes = inserirclientes(clientes, nome, idade, NIF, telefone, email, cidade, morada);
-            // guardarclientes(clientes);
+            clientes = inserircliente(clientes, nome, idade, NIF, telefone, email, cidade, morada);
             break;
         case 5:
             printf("NIF do cliente que quer remover: \n");
             scanf("%d", &NIF);
-            // removercliente(clientes, NIF);
+            removercliente(clientes, NIF);
             break;
         default:
             printf("Opção inválida.\n");
