@@ -19,7 +19,7 @@ Meio *inserirmeio(int codigo, const char* tipo, float preco, float velocidade, f
     strcpy(novo_meio->geocodigo, geocodigo);
     novo_meio->seguinte = NULL;
 
-    // Se a lista estiver vazia, insira o novo meio de mobilidade como o primeiro nó
+    // Se a lista estiver vazia, insirir o novo meio de mobilidade como o primeiro nó
     if (meios == NULL) {
         meios = novo_meio;
     } else {

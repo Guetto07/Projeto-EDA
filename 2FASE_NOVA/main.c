@@ -22,6 +22,9 @@ int main() {
     printf("2. Criar uma aresta\n");
     printf("3. Adicionar um meio num vertice\n");
     printf("4. Localizacao de um meio pelo vertice\n");
+    printf("5. Inserir Cliente\n");
+    printf("6. Inserir meio\n");
+    printf("Opção: ");
     scanf("%d", &escolha);
 
     switch (escolha) {
@@ -53,13 +56,13 @@ int main() {
                 printf("Erro ao criar a aresta.\n");
             }
             break;
-        // case 3:
-        //     printf("Digite a localização do vértice: ");
-        //     scanf("%s", localizacaoVertice);
+        case 3:
+            printf("Digite a localização do vértice: ");
+            scanf("%s", localizacaoVertice);
 
-        //     adicionarMeioNoVertice(localizacaoVertice, listaMeios, listaVertices);
-        //     printf("Meio de mobilidade adicionado ao vértice com sucesso.\n");
-        //     break;
+            adicionarMeioNoVertice(localizacaoVertice, listaMeios, listaVertices);
+            printf("Meio de mobilidade adicionado ao vértice com sucesso.\n");
+            break;
         // case 4:
         //     printf("Digite a localização do vértice: ");
         //     scanf("%s", localizacaoVertice);
@@ -76,6 +79,8 @@ int main() {
         //         }
         //     }
         //     break;
+        case 5:
+            break;
         default:
             printf("Escolha invalida.\n");
             break;

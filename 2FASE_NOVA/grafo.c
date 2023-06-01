@@ -4,9 +4,9 @@
 #include "grafo.h"
 
 Vertice* criarVertice(int cod, char* localizacao, double visitado, Vertice* listaVertices) {
-    Vertice* vertice = malloc(sizeof(Vertice));
+    Vertice* vertice = malloc(sizeof(Vertice)); //aloca memória dinamicamente
     vertice->cod = cod;
-    strcpy(vertice->localizacao, localizacao);
+    strcpy(vertice->localizacao, localizacao); //copia o conteudo de uma string para outra
     vertice->visitado = visitado;
     vertice->meios = NULL;  // Definir os meios posteriormente
     vertice->arestas = NULL;  // Definir as arestas posteriormente
@@ -44,7 +44,7 @@ Aresta* criarAresta(int codAresta, float peso, Aresta* listaArestas) {
 }
 
 Vertice* lerArquivo(const char* nomeArquivo) {
-    FILE* arquivo = fopen(nomeArquivo, "r");
+    FILE* arquivo = fopen(nomeArquivo, "r"); //O nome do arquivo vai ser posteriarmente declarado
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo.\n");
         return NULL;
@@ -54,14 +54,14 @@ Vertice* lerArquivo(const char* nomeArquivo) {
     Vertice* verticeAtual = NULL;
 
     char linha[100];
-    while (fgets(linha, sizeof(linha), arquivo) != NULL) {
-        char* token = strtok(linha, ";");
-        int codVertice = atoi(token);
+    while (fgets(linha, sizeof(linha), arquivo) != NULL) {  //O loop le linha por linha e armaneza
+        char* token = strtok(linha, ";");  //Usa a função strtok para dividir os caracteres com um ";"
+        int codVertice = atoi(token);  //Função "atoi" converte uma string para um inteiro
 
         token = strtok(NULL, ";");
         char cidade[100];
         if (token != NULL) {
-            strcpy(cidade, token);
+            strcpy(cidade, token);  //É copiado para a variavel cidade usando o strcpy
         } else {
             // Lógica para lidar com token nulo (se necessário)
         }
@@ -70,7 +70,7 @@ Vertice* lerArquivo(const char* nomeArquivo) {
         int codAresta = atoi(token);
 
         token = strtok(NULL, ";");
-        float peso = atof(token);
+        float peso = atof(token);  //Função "atof" converte uma string para float
 
         if (listaVertices == NULL) {
             listaVertices = criarVertice(codVertice, cidade, 0, listaVertices);
@@ -165,5 +165,31 @@ void verificarMeiosNoVertice(Vertice* listaVertices) {
     }
 
     printf("Nao foi encontrado um vertice com a localizacao fornecida.\n");
+}
+
+Vertice* encontrarVerticePorLocalizacao(const char* localizacao, Vertice* listaVertices) {
+    Vertice* verticeAtual = listaVertices;
+    while (verticeAtual != NULL) {
+        if (strcmp(verticeAtual->localizacao, localizacao) == 0) {
+            return verticeAtual;
+        }
+        verticeAtual = verticeAtual->proximo;
+    }
+    return NULL;
+}
+
+MeioMobilidade* encontrarMeioPorLocalizacao(const char* localizacao, Vertice* listaVertices) {
+    Vertice* verticeAtual = listaVertices;
+    while (verticeAtual != NULL) {
+        MeioMobilidade* meioAtual = verticeAtual->meios;
+        while (meioAtual != NULL) {
+            if (strcmp(meioAtual->localizacao, localizacao) == 0) {
+                return meioAtual;
+            }
+            meioAtual = meioAtual->proximo;
+        }
+        verticeAtual = verticeAtual->proximo;
+    }
+    return NULL;
 }
 

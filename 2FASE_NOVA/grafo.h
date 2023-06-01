@@ -38,3 +38,5 @@ Vertice* lerArquivo(const char* nomeArquivo);
 void liberarGrafo(Vertice* listaVertices);
 void adicionarMeioNoVertice(char* localizacaoVertice, MeioMobilidade* listaMeios, Vertice* listaVertices);
 void verificarMeiosNoVertice(Vertice* listaVertices);
+Vertice* encontrarVerticePorLocalizacao(const char* localizacao, Vertice* listaVertices);
+MeioMobilidade* encontrarMeioPorLocalizacao(const char* localizacao, Vertice* listaVertices);
